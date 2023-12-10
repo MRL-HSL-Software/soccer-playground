@@ -8,7 +8,8 @@ class soccer_playground {
     private:
         cv::Mat football_playground;
     public:
-        void Create();
+        void create();
+        cv::Mat display();
 };
 
 #endif 
