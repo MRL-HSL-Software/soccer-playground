@@ -12,7 +12,7 @@ double borderStripWidth = 1;
 double penaltyAreaLength = 2;
 double penaltyAreaWidth = 5;
 
-int contractPixel = 105;
+int contractPixel = 100;
 
 int windowWidth = (feildLength + borderStripWidth * 2) * contractPixel;
 int windowLength = (feildWidth + borderStripWidth * 2)  * contractPixel;
@@ -128,6 +128,58 @@ struct midLine {
         thickness(1) {}
 };
 
+struct centerCircle {
+    cv::Point center;
+    int radius;
+    cv::Scalar color;
+    int thickness;
+
+    centerCircle() :
+        center((borderStripWidth + (feildLength / 2)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
+        radius((centreCircleDiameter / 2) * contractPixel),
+        color(255, 255, 255),
+        thickness(1) {}
+};
+
+struct insideCenterCircle {
+    cv::Point center;
+    int radius;
+    cv::Scalar color;
+    int thickness;
+
+    insideCenterCircle() :
+        center((borderStripWidth + (feildLength / 2)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
+        radius(.08 * contractPixel),
+        color(255, 255, 255),
+        thickness(1) {}
+};
+
+struct leftPenaltyMarkCircle {
+    cv::Point center;
+    int radius;
+    cv::Scalar color;
+    int thickness;
+
+    leftPenaltyMarkCircle() :
+        center((borderStripWidth + penaltyMarkDistance) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
+        radius(.08 * contractPixel),
+        color(255, 255, 255),
+        thickness(1) {}
+};
+
+struct rightPenaltyMarkCircle {
+    cv::Point center;
+    int radius;
+    cv::Scalar color;
+    int thickness;
+
+    rightPenaltyMarkCircle() :
+        center((borderStripWidth + (feildLength - penaltyMarkDistance)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
+        radius(.08 * contractPixel),
+        color(255, 255, 255),
+        thickness(1) {}
+};
+
 int main() {
     // Create an RGB matrix (for example, a green image)
 
@@ -140,6 +192,10 @@ int main() {
     leftGoalArea leftGoalArea;
     rightGoalArea rightGoalArea;
     midLine midLine;
+    centerCircle centerCircle;
+    insideCenterCircle insideCenterCircle;
+    leftPenaltyMarkCircle leftPenaltyMark;
+    rightPenaltyMarkCircle rightPenaltyMark;
 
     // Draw the rectangle on the RGB matrix
     cv::rectangle(rgbMatrix, leftGoal.topLeft, leftGoal.bottomRight, leftGoal.color, leftGoal.thickness);
@@ -149,6 +205,10 @@ int main() {
     cv::rectangle(rgbMatrix, leftGoalArea.topLeft, leftGoalArea.bottomRight, leftGoalArea.color, leftGoalArea.thickness);
     cv::rectangle(rgbMatrix, rightGoalArea.topLeft, rightGoalArea.bottomRight, rightGoalArea.color, rightGoalArea.thickness);
     cv::line(rgbMatrix, midLine.startPoint, midLine.endPoint, midLine.color, midLine.thickness);
+    cv::circle(rgbMatrix, centerCircle.center, centerCircle.radius, centerCircle.color, centerCircle.thickness);
+    cv::circle(rgbMatrix, insideCenterCircle.center, insideCenterCircle.radius, insideCenterCircle.color, cv::FILLED);
+    cv::circle(rgbMatrix, leftPenaltyMark.center, leftPenaltyMark.radius, leftPenaltyMark.color, cv::FILLED);
+    cv::circle(rgbMatrix, rightPenaltyMark.center, rightPenaltyMark.radius, rightPenaltyMark.color, cv::FILLED);
     cv::rectangle(rgbMatrix, MainRectangle.topLeft, MainRectangle.bottomRight, MainRectangle.color, MainRectangle.thickness);
 
 
