@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 
+//intialize soccor-playground variables
 double feildLength = 9;
 double feildWidth = 6;
 double goalDepth = 0.6;
@@ -12,8 +13,10 @@ double borderStripWidth = 1;
 double penaltyAreaLength = 2;
 double penaltyAreaWidth = 5;
 
+//initialize contract pixel(how many pixels equals one meter?)
 int contractPixel = 100;
 
+//initialize window variables
 int windowWidth = (feildLength + borderStripWidth * 2) * contractPixel;
 int windowLength = (feildWidth + borderStripWidth * 2)  * contractPixel;
 
@@ -181,9 +184,10 @@ struct rightPenaltyMarkCircle {
 };
 
 int main() {
-    // Create an RGB matrix (for example, a green image)
 
-    cv::Mat rgbMatrix(windowLength, windowWidth, CV_8UC3, cv::Scalar(9, 16, 9));  // Set the green channel to 255
+    // Create an RGB matrix
+    cv::Mat rgbMatrix(windowLength, windowWidth, CV_8UC3, cv::Scalar(9, 16, 9));
+
     MainRectangle MainRectangle;
     leftGoal leftGoal;
     rightGoal rightGoal;
@@ -197,7 +201,7 @@ int main() {
     leftPenaltyMarkCircle leftPenaltyMark;
     rightPenaltyMarkCircle rightPenaltyMark;
 
-    // Draw the rectangle on the RGB matrix
+    // Draw the rectangles and circles on the RGB matrix
     cv::rectangle(rgbMatrix, leftGoal.topLeft, leftGoal.bottomRight, leftGoal.color, leftGoal.thickness);
     cv::rectangle(rgbMatrix, rightGoal.topLeft, rightGoal.bottomRight, rightGoal.color, rightGoal.thickness);
     cv::rectangle(rgbMatrix, leftPenaltyArea.topLeft, leftPenaltyArea.bottomRight, leftPenaltyArea.color, leftPenaltyArea.thickness);
@@ -213,7 +217,7 @@ int main() {
 
 
 
-    // Display the RGB matrix with the rectangle in a window
+    // Display the RGB matrix with the rectangles and circles in a window
     cv::imshow("RGB Matrix with Rectangle", rgbMatrix);
 
     // Wait for a key event and then close the window
