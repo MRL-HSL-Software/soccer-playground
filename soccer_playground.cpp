@@ -50,18 +50,20 @@ void soccer_playground :: create()
     Point Goal_Right_top ((Border_strip_width + Field_length)* scale, (Border_strip_width + JtoA + EtoJ + CtoE) * scale);
     Point Goal_Right_bottom ((Border_strip_width + Field_length + Goal_depth) * scale , (Border_strip_width + JtoA + EtoJ + CtoE + Goal_width) * scale);
 
+    cv::rectangle( football_playground, Goal_Left_top, Goal_Left_bottom, cv::Scalar(0, 255, 255), 1); //Goal depth Left
+    cv::rectangle( football_playground, Goal_Right_top, Goal_Right_bottom, cv::Scalar(255, 191, 0), 1); //Goal depth Right
+
+
     //drawing the ground
     cv::rectangle( football_playground, top_Left, bottom_Right, cv::Scalar(255, 255, 255), 1);
 
     //left
     cv::rectangle( football_playground, Penalty_Left_top, Penalty_Left_bottom, cv::Scalar(255, 255, 255), 1); //Penalty area
     cv::rectangle( football_playground, Goal_Area_Left_top, Goal_Area_Left_bottom, cv::Scalar(255, 255, 255), 1); //Goal area
-    cv::rectangle( football_playground, Goal_Left_top, Goal_Left_bottom, cv::Scalar(255, 255, 255), 1); //Goal depth
 
     //right
     cv::rectangle( football_playground, Penalty_Right_top, Penalty_Right_bottom, cv::Scalar(255, 255, 255), 1); //Penalty area
     cv::rectangle( football_playground, Goal_Area_Right_top, Goal_Area_Right_bottom, cv::Scalar(255, 255, 255), 1); //Goal area
-    cv::rectangle( football_playground, Goal_Right_top, Goal_Right_bottom, cv::Scalar(255, 255, 255), 1); //Goal depth
 
      //main circle
     cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),(Centre_circle_diameter/2)  *scale ,cv::Scalar(255, 255, 255), 1);
