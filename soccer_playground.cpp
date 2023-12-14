@@ -1,19 +1,19 @@
 #include "soccer_playground.hpp"
 
-double Field_length = 9.0;
-double Field_width = 6.0;
-double Goal_depth = 0.6;
-double Goal_width = 2.6;
-double Goal_height = 1.2;
-double Goal_area_length = 1.0;
-double Goal_area_width = 3.0;
-double Penalty_mark_distance = 1.5;
-double Centre_circle_diameter = 1.5;
-double Border_strip_width = 1.0;
-double Penalty_area_length = 2.0;
-double Penalty_area_width = 5.0;
+double Field_length = FIELD_LENGTH;
+double Field_width = FIELD_WIDTH;
+double Goal_depth = GOAL_DEPTH;
+double Goal_width = GOAL_WIDTH;
+double Goal_height = GOAL_HEIGHT;
+double Goal_area_length = GOAL_AREA_LENGTH;
+double Goal_area_width = GOAL_AREA_WIDTH;
+double Penalty_mark_distance = PENALTY_MARK_DISTANCE;
+double Center_circle_diameter = CENTER_CIRCLE_DIAMETER;
+double Border_strip_width = BORDER_STRIP_WIDTH;
+double Penalty_area_length = PENALTY_AREA_LENGTH;
+double Penalty_area_width = PENALTY_AREA_WIDTH;
 
-int scale = 50;
+int scale = SCALE;
 
 double width  = Field_width + 2 * Border_strip_width;
 double length = Field_length + 2 * Border_strip_width;
@@ -66,7 +66,7 @@ void soccer_playground :: create()
     cv::rectangle( football_playground, Goal_Area_Right_top, Goal_Area_Right_bottom, cv::Scalar(255, 255, 255), 1); //Goal area
 
      //main circle
-    cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),(Centre_circle_diameter/2)  *scale ,cv::Scalar(255, 255, 255), 1);
+    cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),(Center_circle_diameter/2)  *scale ,cv::Scalar(255, 255, 255), 1);
 
      //small circles
     cv::circle(football_playground, cv::Point((Border_strip_width + Penalty_mark_distance) * scale, ( Border_strip_width +  Field_width /2)* scale ),0.05 *scale ,cv::Scalar(255, 255, 255), FILLED);
