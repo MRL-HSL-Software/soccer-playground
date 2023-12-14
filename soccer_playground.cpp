@@ -65,7 +65,17 @@ void soccer_playground :: create()
 
      //main circle
     cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),(Centre_circle_diameter/2)  *scale ,cv::Scalar(255, 255, 255), 1);
-    
+
+     //small circles
+    cv::circle(football_playground, cv::Point((Border_strip_width + Penalty_mark_distance) * scale, ( Border_strip_width +  Field_width /2)* scale ),0.05 *scale ,cv::Scalar(255, 255, 255), FILLED);
+
+    cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),0.05  *scale ,cv::Scalar(255, 255, 255), FILLED);
+
+    cv::circle(football_playground, 
+    cv::Point((Border_strip_width + Field_length - Penalty_mark_distance) * scale, ( Border_strip_width +  Field_width /2)* scale ), 
+    0.05 * scale ,
+    cv::Scalar(255, 255, 255), 
+    FILLED);
 
 }
 
