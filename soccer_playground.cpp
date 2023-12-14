@@ -77,7 +77,13 @@ void soccer_playground :: create()
     cv::Scalar(255, 255, 255), 
     FILLED);
 
-}
+    cv::line (football_playground, 
+    cv::Point((Border_strip_width + (Field_length /2))* scale , Border_strip_width * scale), 
+    cv::Point((Border_strip_width + (Field_length /2))* scale , (Border_strip_width + Field_width)* scale), 
+    cv::Scalar(255, 255, 255),
+    1);
+    }
+
 
 cv::Mat soccer_playground::display()
 {
