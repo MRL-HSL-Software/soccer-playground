@@ -63,6 +63,10 @@ void soccer_playground :: create()
     cv::rectangle( football_playground, Goal_Area_Right_top, Goal_Area_Right_bottom, cv::Scalar(255, 255, 255), 1); //Goal area
     cv::rectangle( football_playground, Goal_Right_top, Goal_Right_bottom, cv::Scalar(255, 255, 255), 1); //Goal depth
 
+     //main circle
+    cv::circle(football_playground, cv::Point((Border_strip_width + Field_length/2) * scale, ( Border_strip_width +  Field_width /2)* scale ),(Centre_circle_diameter/2)  *scale ,cv::Scalar(255, 255, 255), 1);
+    
+
 }
 
 cv::Mat soccer_playground::display()
