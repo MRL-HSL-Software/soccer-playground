@@ -89,25 +89,57 @@ void PlayGround::drawGoals(){
 }
 
 void PlayGround::drawPoints(){
-    cv::Point right_goal_top_left(
-        (MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index),
-        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+    cv::Point right_horizontal_penalty_goal_ending_coordinate(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) - (PENALTY_MARK_DISTANCE * base_index + PENALTY_MARK_SIZE * base_index),
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
         );
-    cv::Point right_goal_buttom_right(
-        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) + (GOAL_WIDTH * base_index),
-        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+    cv::Point right_horizontal_penalty_goal_starting_coordinate(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) - (PENALTY_MARK_DISTANCE * base_index - PENALTY_MARK_SIZE * base_index),
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
         );
-    cv::rectangle(image, right_goal_top_left, right_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
+    cv::line(image, right_horizontal_penalty_goal_starting_coordinate, right_horizontal_penalty_goal_ending_coordinate, cv::Scalar(255, 255, 255), 1);
 
-    cv::Point left_goal_top_left(
-        (MAIN_RECT_MARGIN * base_index) - (GOAL_WIDTH * base_index),
-        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+    cv::Point right_vertical_penalty_goal_ending_coordinate(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) - PENALTY_MARK_DISTANCE * base_index,
+        (MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2) - PENALTY_MARK_SIZE * base_index
         );
-    cv::Point left_goal_buttom_right(
-        MAIN_RECT_MARGIN * base_index,
-        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+    cv::Point right_vertical_penalty_goal_starting_coordinate(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) - PENALTY_MARK_DISTANCE * base_index,
+        (MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2) + PENALTY_MARK_SIZE * base_index
         );
-    cv::rectangle(image, left_goal_top_left, left_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
+    cv::line(image, right_vertical_penalty_goal_starting_coordinate, right_vertical_penalty_goal_ending_coordinate, cv::Scalar(255, 255, 255), 1);
+
+
+    cv::Point left_horizontal_penalty_goal_ending_coordinate(
+        (MAIN_RECT_MARGIN * base_index) + (PENALTY_MARK_DISTANCE * base_index + PENALTY_MARK_SIZE * base_index),
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
+        );
+    cv::Point left_horizontal_penalty_goal_starting_coordinate(
+        (MAIN_RECT_MARGIN * base_index) + (PENALTY_MARK_DISTANCE * base_index - PENALTY_MARK_SIZE * base_index),
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
+        );
+    cv::line(image, left_horizontal_penalty_goal_starting_coordinate, left_horizontal_penalty_goal_ending_coordinate, cv::Scalar(255, 255, 255), 1);
+
+    cv::Point left_vertical_penalty_goal_ending_coordinate(
+        MAIN_RECT_MARGIN * base_index + PENALTY_MARK_DISTANCE * base_index,
+        (MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2) - PENALTY_MARK_SIZE * base_index
+        );
+    cv::Point left_vertical_penalty_goal_starting_coordinate(
+        MAIN_RECT_MARGIN * base_index + PENALTY_MARK_DISTANCE * base_index,
+        (MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2) + PENALTY_MARK_SIZE * base_index
+        );
+    cv::line(image, left_vertical_penalty_goal_starting_coordinate, left_vertical_penalty_goal_ending_coordinate, cv::Scalar(255, 255, 255), 1);
+
+
+    cv::Point middle_horizontal_penalty_goal_ending_coordinate(
+        (MAIN_RECT_MARGIN * base_index) + ((MAIN_RECT_WIDTH * base_index)/2) + PENALTY_MARK_SIZE * base_index,
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
+        );
+    cv::Point middle_horizontal_penalty_goal_starting_coordinate(
+        (MAIN_RECT_MARGIN * base_index) + (MAIN_RECT_WIDTH * base_index)/2 - PENALTY_MARK_SIZE * base_index,
+        MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index)/2
+        );
+    cv::line(image, middle_horizontal_penalty_goal_ending_coordinate, middle_horizontal_penalty_goal_starting_coordinate, cv::Scalar(255, 255, 255), 1);
 }
 
 void PlayGround::showImage() {

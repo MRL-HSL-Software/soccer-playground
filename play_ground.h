@@ -11,7 +11,7 @@ public:
     void drawGoals();
     void drawSmallGoalRect();
     void drawBigGoalRect();
-    void drawPoint();
+    void drawPoints();
     void showImage();
 
 private:
