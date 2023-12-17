@@ -17,6 +17,12 @@ void PlayGround::drawMainRect() {
     cv::line(image, middle_line_starting, middle_line_ending, cv::Scalar(255, 255, 255), 1);
 }
 
+void PlayGround::drawMiddleCircle() {
+    cv::Point middle_circle_coordinate(MAIN_RECT_MARGIN * base_index + (MAIN_RECT_WIDTH * base_index)/2, MAIN_RECT_MARGIN * base_index + (MAIN_RECT_HEIGHT * base_index) / 2);
+    cv::circle(image, middle_circle_coordinate, MIDDLE_CIRCLE_RADIUS * base_index, cv::Scalar(255, 255, 255), 1);
+}
+
+
 // void ShapeDrawer::drawCircle() {
 //     cv::circle(image, center, radius, color, -1);
 // }

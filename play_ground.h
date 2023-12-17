@@ -10,10 +10,8 @@ public:
     void drawMiddleCircle();
     void drawLeftGoal();
     void drawRighGoal();
-    void drawLeftSmallRect();
-    void drawLeftBigRect();
-    void drawRightSmallRect();
-    void drawRightBigRect();
+    void drawSmallGoalRect();
+    void drawBigGoalRect();
     void showImage();
 
 private:
