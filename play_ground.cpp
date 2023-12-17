@@ -66,13 +66,49 @@ void PlayGround::drawSmallGoalRect(){
     cv::rectangle(image, left_small_goal_rect_top_left, left_small_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
 }
 
-// void ShapeDrawer::drawCircle() {
-//     cv::circle(image, center, radius, color, -1);
-// }
+void PlayGround::drawGoals(){
+    cv::Point right_goal_top_left(
+        (MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+        );
+    cv::Point right_goal_buttom_right(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) + (GOAL_WIDTH * base_index),
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+        );
+    cv::rectangle(image, right_goal_top_left, right_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
 
-// void ShapeDrawer::drawLine() {
-//     cv::line(image, pt1, pt2, color, 2);
-// }
+    cv::Point left_goal_top_left(
+        (MAIN_RECT_MARGIN * base_index) - (GOAL_WIDTH * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+        );
+    cv::Point left_goal_buttom_right(
+        MAIN_RECT_MARGIN * base_index,
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+        );
+    cv::rectangle(image, left_goal_top_left, left_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
+}
+
+void PlayGround::drawPoints(){
+    cv::Point right_goal_top_left(
+        (MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+        );
+    cv::Point right_goal_buttom_right(
+        ((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index)) + (GOAL_WIDTH * base_index),
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+        );
+    cv::rectangle(image, right_goal_top_left, right_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
+
+    cv::Point left_goal_top_left(
+        (MAIN_RECT_MARGIN * base_index) - (GOAL_WIDTH * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2
+        );
+    cv::Point left_goal_buttom_right(
+        MAIN_RECT_MARGIN * base_index,
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (GOAL_HEIGHT * base_index))/2) + (GOAL_HEIGHT * base_index)
+        );
+    cv::rectangle(image, left_goal_top_left, left_goal_buttom_right, cv::Scalar(255, 255, 255), 1);
+}
 
 void PlayGround::showImage() {
     cv::imshow("Shapes", image);
