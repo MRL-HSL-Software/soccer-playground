@@ -8,8 +8,7 @@ public:
     PlayGround(int base_index);
     void drawMainRect();
     void drawMiddleCircle();
-    void drawLeftGoal();
-    void drawRighGoal();
+    void drawGoals();
     void drawSmallGoalRect();
     void drawBigGoalRect();
     void showImage();

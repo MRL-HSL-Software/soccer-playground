@@ -7,6 +7,7 @@ int main() {
     drawer.drawMainRect();
     drawer.drawMiddleCircle();
     drawer.drawBigGoalRect();
+    drawer.drawSmallGoalRect();
 
     drawer.showImage();
 

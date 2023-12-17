@@ -23,25 +23,47 @@ void PlayGround::drawMiddleCircle() {
 }
 
 void PlayGround::drawBigGoalRect(){
-    cv::Point left_larg_goal_rect_top_left(
+    cv::Point right_larg_goal_rect_top_left(
         (MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index) - (LARG_GOAL_RECT_WIDTH * base_index),
         (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2
         );
-    cv::Point left_larg_goal_rect_buttom_right(
+    cv::Point right_larg_goal_rect_buttom_right(
         MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index,
         ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2) + (LARG_GOAL_RECT_HEIGHT * base_index)
         );
-    cv::rectangle(image, left_larg_goal_rect_top_left, left_larg_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
+    cv::rectangle(image, right_larg_goal_rect_top_left, right_larg_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
 
-    cv::Point right_larg_goal_rect_top_left(
+    cv::Point left_larg_goal_rect_top_left(
         MAIN_RECT_MARGIN * base_index,
         (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2
         );
-    cv::Point right_larg_goal_rect_buttom_right(
+    cv::Point left_larg_goal_rect_buttom_right(
         MAIN_RECT_MARGIN * base_index + LARG_GOAL_RECT_WIDTH * base_index,
         ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2) + (LARG_GOAL_RECT_HEIGHT * base_index)
         );
-    cv::rectangle(image, right_larg_goal_rect_top_left, right_larg_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
+    cv::rectangle(image, left_larg_goal_rect_top_left, left_larg_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
+}
+
+void PlayGround::drawSmallGoalRect(){
+    cv::Point right_small_goal_rect_top_left(
+        (MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index) - (SMALL_GOAL_RECT_WIDTH * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (SMALL_GOAL_RECT_HEIGHT * base_index))/2
+        );
+    cv::Point right_small_goal_rect_buttom_right(
+        MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index,
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (SMALL_GOAL_RECT_HEIGHT * base_index))/2) + (SMALL_GOAL_RECT_HEIGHT * base_index)
+        );
+    cv::rectangle(image, right_small_goal_rect_top_left, right_small_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
+
+    cv::Point left_small_goal_rect_top_left(
+        MAIN_RECT_MARGIN * base_index,
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (SMALL_GOAL_RECT_HEIGHT * base_index))/2
+        );
+    cv::Point left_small_goal_rect_buttom_right(
+        MAIN_RECT_MARGIN * base_index + SMALL_GOAL_RECT_WIDTH * base_index,
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (SMALL_GOAL_RECT_HEIGHT * base_index))/2) + (SMALL_GOAL_RECT_HEIGHT * base_index)
+        );
+    cv::rectangle(image, left_small_goal_rect_top_left, left_small_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
 }
 
 // void ShapeDrawer::drawCircle() {
