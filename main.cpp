@@ -4,11 +4,11 @@ int main() {
     PlayGround drawer(60); // Initialize with width and height
 
     // Draw shapes
+    drawer.drawGoals();
     drawer.drawMainRect();
     drawer.drawMiddleCircle();
     drawer.drawBigGoalRect();
     drawer.drawSmallGoalRect();
-    drawer.drawGoals();
     drawer.drawPoints();
 
     drawer.showImage();

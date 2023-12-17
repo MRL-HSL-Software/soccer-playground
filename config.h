@@ -1,5 +1,6 @@
 
-// #define BASE_INDEX 60
+#define BASE_INDEX 60
+#define LINE_WIDTH 1
 #define MAIN_RECT_WIDTH 9
 #define MAIN_RECT_HEIGHT 6
 #define MAIN_RECT_MARGIN 1

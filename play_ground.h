@@ -12,11 +12,11 @@ public:
     void drawSmallGoalRect();
     void drawBigGoalRect();
     void drawPoints();
+    void drawTheWholeField();
     void showImage();
 
 private:
     cv::Mat image;
-    int base_index;
 };
 
 #endif
