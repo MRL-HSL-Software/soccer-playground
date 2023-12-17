@@ -1,12 +1,20 @@
 #include "play_ground.h"
 #include "config.h"
 
-PlayGround::PlayGround(int width, int height) {
-    image = cv::Mat::zeros(300, 500, CV_8UC3);
+PlayGround::PlayGround(int baseIndex) {
+    base_index = baseIndex;
+    const int width = (MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index) * 2;
+    const int height = (MAIN_RECT_HEIGHT * base_index) + (MAIN_RECT_MARGIN * base_index) * 2;
+    image = cv::Mat::zeros(height, width, CV_8UC3);
 }
 
-void ShapeDrawer::drawRectangle() {
-    cv::rectangle(image, MAIN_RECT_WITDH, MAIN_RECT_HEIGHT, cv::Scalar(255, 255, 255), -1);
+void PlayGround::drawMainRect() {
+    cv::Point main_rect_top_left(MAIN_RECT_MARGIN * base_index, MAIN_RECT_MARGIN * base_index);
+    cv::Point main_rect_bottom_right((MAIN_RECT_WIDTH * base_index) + (MAIN_RECT_MARGIN * base_index), (MAIN_RECT_HEIGHT * base_index) + (MAIN_RECT_MARGIN * base_index));
+    cv::rectangle(image, main_rect_top_left, main_rect_bottom_right, cv::Scalar(255, 255, 255), 1);
+    cv::Point middle_line_starting(MAIN_RECT_MARGIN * base_index + (MAIN_RECT_WIDTH * base_index)/2, MAIN_RECT_MARGIN * base_index);
+    cv::Point middle_line_ending(MAIN_RECT_MARGIN * base_index + (MAIN_RECT_WIDTH * base_index)/2, MAIN_RECT_HEIGHT * base_index + MAIN_RECT_MARGIN * base_index);
+    cv::line(image, middle_line_starting, middle_line_ending, cv::Scalar(255, 255, 255), 1);
 }
 
 // void ShapeDrawer::drawCircle() {
@@ -17,7 +25,7 @@ void ShapeDrawer::drawRectangle() {
 //     cv::line(image, pt1, pt2, color, 2);
 // }
 
-void ShapeDrawer::showImage() {
+void PlayGround::showImage() {
     cv::imshow("Shapes", image);
     cv::waitKey(0);
     cv::destroyAllWindows();

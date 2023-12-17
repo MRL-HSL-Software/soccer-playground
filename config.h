@@ -1,8 +1,9 @@
 
-#define MAIN_RECT_WITDH 9
+// #define BASE_INDEX 60
+#define MAIN_RECT_WIDTH 9
 #define MAIN_RECT_HEIGHT 6
-// #define MAIN_RECT_WITDH 9
-// #define MAIN_RECT_WITDH 9
+#define MAIN_RECT_MARGIN 1
+#define MAIN_RECT_WITDH 9
 // #define MAIN_RECT_WITDH 9
 // #define MAIN_RECT_WITDH 9
 // #define MAIN_RECT_WITDH 9

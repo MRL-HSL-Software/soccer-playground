@@ -5,7 +5,7 @@
 
 class PlayGround {
 public:
-    PlayGround(int width, int height);
+    PlayGround(int base_index);
     void drawMainRect();
     void drawMiddleCircle();
     void drawLeftGoal();
@@ -18,6 +18,7 @@ public:
 
 private:
     cv::Mat image;
+    int base_index;
 };
 
 #endif
