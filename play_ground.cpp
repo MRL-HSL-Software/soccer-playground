@@ -22,6 +22,17 @@ void PlayGround::drawMiddleCircle() {
     cv::circle(image, middle_circle_coordinate, MIDDLE_CIRCLE_RADIUS * base_index, cv::Scalar(255, 255, 255), 1);
 }
 
+void PlayGround::drawBigGoalRect(){
+    cv::Point left_larg_goal_rect_top_left(
+        (MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index) - (LARG_GOAL_RECT_WIDTH * base_index),
+        (((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2
+        );
+    cv::Point left_larg_goal_rect_buttom_right(
+        MAIN_RECT_MARGIN * base_index + MAIN_RECT_WIDTH * base_index,
+        ((((MAIN_RECT_MARGIN * base_index)*2 + (MAIN_RECT_HEIGHT * base_index)) - (LARG_GOAL_RECT_HEIGHT * base_index))/2) + (LARG_GOAL_RECT_HEIGHT * base_index)
+        );
+    cv::rectangle(image, left_larg_goal_rect_top_left, left_larg_goal_rect_buttom_right, cv::Scalar(255, 255, 255), 1);
+}
 
 // void ShapeDrawer::drawCircle() {
 //     cv::circle(image, center, radius, color, -1);
