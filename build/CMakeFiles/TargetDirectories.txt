@@ -1,3 +1,0 @@
-/home/amcoder/Code/MRL/SoccerPlayGround/build/CMakeFiles/MyProject.dir
-/home/amcoder/Code/MRL/SoccerPlayGround/build/CMakeFiles/edit_cache.dir
-/home/amcoder/Code/MRL/SoccerPlayGround/build/CMakeFiles/rebuild_cache.dir

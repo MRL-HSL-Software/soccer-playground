@@ -277,7 +277,7 @@ void PlayGround::showImage() {
     /*
     Display the final image and ready to get any number for closing it
     */
-    cv::imshow("Soccer field", image);
+    cv::imshow("Soccer Field", image);
     cv::waitKey(0);
     cv::destroyAllWindows();
 }
