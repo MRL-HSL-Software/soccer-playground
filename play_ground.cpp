@@ -261,11 +261,23 @@ void PlayGround::drawPoints(){
     LINE_WIDTH);
 }
 
+void PlayGround::drawTheWholeField(){
+    /*
+    Encapsulate all necessary methods for drawing the field
+    */
+    PlayGround::drawGoals();
+    PlayGround::drawMainRect();
+    PlayGround::drawMiddleCircle();
+    PlayGround::drawBigGoalRect();
+    PlayGround::drawSmallGoalRect();
+    PlayGround::drawPoints();
+}
+
 void PlayGround::showImage() {
     /*
     Display the final image and ready to get any number for closing it
     */
-    cv::imshow("Shapes", image);
+    cv::imshow("Soccer field", image);
     cv::waitKey(0);
     cv::destroyAllWindows();
 }

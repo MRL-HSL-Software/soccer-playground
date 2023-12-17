@@ -1,4 +1,3 @@
-
 #define BASE_INDEX 60
 #define LINE_WIDTH 1
 #define MAIN_RECT_WIDTH 9

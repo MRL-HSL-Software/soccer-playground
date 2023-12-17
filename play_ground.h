@@ -1,11 +1,11 @@
 #ifndef PLAYGROUND_H
-#define SHAPEDRAWER_H
+#define PLAYGROUND_H
 
 #include <opencv2/opencv.hpp>
 
 class PlayGround {
 public:
-    PlayGround(int base_index);
+    PlayGround();
     void drawMainRect();
     void drawMiddleCircle();
     void drawGoals();
