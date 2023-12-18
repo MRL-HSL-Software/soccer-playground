@@ -1,220 +1,59 @@
-#include <opencv2/opencv.hpp>
-
-//intialize soccor-playground variables
-double feildLength = 9;
-double feildWidth = 6;
-double goalDepth = 0.6;
-double goalwidth = 2.6;
-double goalAreaLength = 1;
-double goalAreaWidth = 3;
-double penaltyMarkDistance = 1.5;
-double centreCircleDiameter = 1.5;
-double borderStripWidth = 1;
-double penaltyAreaLength = 2;
-double penaltyAreaWidth = 5;
-
-//initialize contract pixel(how many pixels equals one meter?)
-int contractPixel = 100;
-
-//initialize window variables
-int windowWidth = (feildLength + borderStripWidth * 2) * contractPixel;
-int windowLength = (feildWidth + borderStripWidth * 2)  * contractPixel;
-
-struct MainRectangle {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    MainRectangle() : 
-        topLeft(borderStripWidth * contractPixel, borderStripWidth * contractPixel),
-        bottomRight((borderStripWidth + feildLength) * contractPixel, (borderStripWidth + feildWidth) * contractPixel),
-        color(255, 255, 255),  // White color
-        thickness(1) {}
-};
-
-struct leftGoal {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    leftGoal() :
-        topLeft((borderStripWidth - goalDepth) * contractPixel, (borderStripWidth + (feildWidth - goalwidth) / 2) * contractPixel),
-        bottomRight(borderStripWidth * contractPixel, (borderStripWidth + ((feildWidth - goalwidth) / 2) + goalwidth)  * contractPixel),
-        color(255, 255, 0),
-        thickness(1) {}
-};
-
-struct rightGoal {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    rightGoal() :
-        topLeft((borderStripWidth + feildLength) * contractPixel, (borderStripWidth + (feildWidth - goalwidth) / 2) * contractPixel),
-        bottomRight((borderStripWidth + feildLength + goalDepth) * contractPixel, (borderStripWidth + ((feildWidth - goalwidth) / 2) + goalwidth)  * contractPixel),
-        color(0, 255, 255),
-        thickness(1) {}
-};
-
-struct leftPenaltyArea {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    leftPenaltyArea() :
-        topLeft(borderStripWidth * contractPixel, (borderStripWidth + (feildWidth - penaltyAreaWidth) / 2) * contractPixel),
-        bottomRight((borderStripWidth + penaltyAreaLength) * contractPixel, (borderStripWidth + ((feildWidth - penaltyAreaWidth) / 2) + penaltyAreaWidth)  * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct rightPenaltyArea {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    rightPenaltyArea() :
-        topLeft(((borderStripWidth + feildLength) - penaltyAreaLength) * contractPixel, (borderStripWidth + (feildWidth - penaltyAreaWidth) / 2) * contractPixel),
-        bottomRight((borderStripWidth + feildLength) * contractPixel, (borderStripWidth + ((feildWidth - penaltyAreaWidth) / 2) + penaltyAreaWidth)  * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct leftGoalArea {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    leftGoalArea() :
-        topLeft(borderStripWidth * contractPixel, (borderStripWidth + (feildWidth - goalAreaWidth) / 2) * contractPixel),
-        bottomRight((borderStripWidth + goalAreaLength) * contractPixel, (borderStripWidth + ((feildWidth - goalAreaWidth) / 2) + goalAreaWidth)  * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct rightGoalArea {
-    cv::Point topLeft;
-    cv::Point bottomRight;
-    cv::Scalar color;
-    int thickness;
-
-    // Constructor to initialize the members
-    rightGoalArea() :
-        topLeft(((borderStripWidth + feildLength) - goalAreaLength) * contractPixel, (borderStripWidth + (feildWidth - goalAreaWidth) / 2) * contractPixel),
-        bottomRight((borderStripWidth + feildLength) * contractPixel, (borderStripWidth + ((feildWidth - goalAreaWidth) / 2) + goalAreaWidth)  * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct midLine {
-    cv::Point startPoint;
-    cv::Point endPoint;
-    cv::Scalar color;
-    int thickness;
-
-    midLine() :
-        startPoint((borderStripWidth + (feildLength / 2)) * contractPixel, borderStripWidth * contractPixel),
-        endPoint((borderStripWidth + (feildLength / 2)) * contractPixel, (borderStripWidth + feildWidth) * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct centerCircle {
-    cv::Point center;
-    int radius;
-    cv::Scalar color;
-    int thickness;
-
-    centerCircle() :
-        center((borderStripWidth + (feildLength / 2)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
-        radius((centreCircleDiameter / 2) * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct insideCenterCircle {
-    cv::Point center;
-    int radius;
-    cv::Scalar color;
-    int thickness;
-
-    insideCenterCircle() :
-        center((borderStripWidth + (feildLength / 2)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
-        radius(.08 * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct leftPenaltyMarkCircle {
-    cv::Point center;
-    int radius;
-    cv::Scalar color;
-    int thickness;
-
-    leftPenaltyMarkCircle() :
-        center((borderStripWidth + penaltyMarkDistance) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
-        radius(.08 * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
-
-struct rightPenaltyMarkCircle {
-    cv::Point center;
-    int radius;
-    cv::Scalar color;
-    int thickness;
-
-    rightPenaltyMarkCircle() :
-        center((borderStripWidth + (feildLength - penaltyMarkDistance)) * contractPixel, (borderStripWidth + (feildWidth / 2)) * contractPixel),
-        radius(.08 * contractPixel),
-        color(255, 255, 255),
-        thickness(1) {}
-};
+#include "soccerPlayground.hpp"
 
 int main() {
-
     // Create an RGB matrix
     cv::Mat rgbMatrix(windowLength, windowWidth, CV_8UC3, cv::Scalar(9, 16, 9));
 
-    MainRectangle MainRectangle;
-    leftGoal leftGoal;
-    rightGoal rightGoal;
-    leftPenaltyArea leftPenaltyArea;
-    rightPenaltyArea rightPenaltyArea;
-    leftGoalArea leftGoalArea;
-    rightGoalArea rightGoalArea;
-    midLine midLine;
-    centerCircle centerCircle;
-    insideCenterCircle insideCenterCircle;
-    leftPenaltyMarkCircle leftPenaltyMark;
-    rightPenaltyMarkCircle rightPenaltyMark;
+    MainRectangle main_rectangle;
+    leftGoal left_goal;
+    rightGoal right_goal;
+    leftPenaltyArea left_penalty_area;
+    rightPenaltyArea right_penalty_area;
+    leftGoalArea left_goal_area;
+    rightGoalArea right_goal_area;
+    midLine mid_line;
+    centerCircle center_circle;
+    insideCenterCircle inside_center_circle;
+    leftPenaltyMarkCircle left_penalty_mark;
+    rightPenaltyMarkCircle right_penalty_mark;
 
     // Draw the rectangles and circles on the RGB matrix
-    cv::rectangle(rgbMatrix, leftGoal.topLeft, leftGoal.bottomRight, leftGoal.color, leftGoal.thickness);
-    cv::rectangle(rgbMatrix, rightGoal.topLeft, rightGoal.bottomRight, rightGoal.color, rightGoal.thickness);
-    cv::rectangle(rgbMatrix, leftPenaltyArea.topLeft, leftPenaltyArea.bottomRight, leftPenaltyArea.color, leftPenaltyArea.thickness);
-    cv::rectangle(rgbMatrix, rightPenaltyArea.topLeft, rightPenaltyArea.bottomRight, rightPenaltyArea.color, rightPenaltyArea.thickness);
-    cv::rectangle(rgbMatrix, leftGoalArea.topLeft, leftGoalArea.bottomRight, leftGoalArea.color, leftGoalArea.thickness);
-    cv::rectangle(rgbMatrix, rightGoalArea.topLeft, rightGoalArea.bottomRight, rightGoalArea.color, rightGoalArea.thickness);
-    cv::line(rgbMatrix, midLine.startPoint, midLine.endPoint, midLine.color, midLine.thickness);
-    cv::circle(rgbMatrix, centerCircle.center, centerCircle.radius, centerCircle.color, centerCircle.thickness);
-    cv::circle(rgbMatrix, insideCenterCircle.center, insideCenterCircle.radius, insideCenterCircle.color, cv::FILLED);
-    cv::circle(rgbMatrix, leftPenaltyMark.center, leftPenaltyMark.radius, leftPenaltyMark.color, cv::FILLED);
-    cv::circle(rgbMatrix, rightPenaltyMark.center, rightPenaltyMark.radius, rightPenaltyMark.color, cv::FILLED);
-    cv::rectangle(rgbMatrix, MainRectangle.topLeft, MainRectangle.bottomRight, MainRectangle.color, MainRectangle.thickness);
 
+    // Draw left goal rectangle
+    cv::rectangle(rgbMatrix, left_goal.topLeft, left_goal.bottomRight, left_goal.color, left_goal.thickness);
+
+    // Draw right goal rectangle
+    cv::rectangle(rgbMatrix, right_goal.topLeft, right_goal.bottomRight, right_goal.color, right_goal.thickness);
+
+    // Draw left penalty area
+    cv::rectangle(rgbMatrix, left_penalty_area.topLeft, left_penalty_area.bottomRight, left_penalty_area.color, left_penalty_area.thickness);
+
+    // Draw right penalty area
+    cv::rectangle(rgbMatrix, right_penalty_area.topLeft, right_penalty_area.bottomRight, right_penalty_area.color, right_penalty_area.thickness);
+
+    // Draw left goal area
+    cv::rectangle(rgbMatrix, left_goal_area.topLeft, left_goal_area.bottomRight, left_goal_area.color, left_goal_area.thickness);
+
+    // Draw right goal area
+    cv::rectangle(rgbMatrix, right_goal_area.topLeft, right_goal_area.bottomRight, right_goal_area.color, right_goal_area.thickness);
+
+    //Draw mid line
+    cv::line(rgbMatrix, mid_line.startPoint, mid_line.endPoint, mid_line.color, mid_line.thickness);
+
+    // Draw center circle
+    cv::circle(rgbMatrix, center_circle.center, center_circle.radius, center_circle.color, center_circle.thickness);
+
+    // Draw dot inside center circle
+    cv::circle(rgbMatrix, inside_center_circle.center, inside_center_circle.radius, inside_center_circle.color, cv::FILLED);
+
+    // Draw left penalty mark
+    cv::circle(rgbMatrix, left_penalty_mark.center, left_penalty_mark.radius, left_penalty_mark.color, cv::FILLED);
+
+    // Draw right penalty mark
+    cv::circle(rgbMatrix, right_penalty_mark.center, right_penalty_mark.radius, right_penalty_mark.color, cv::FILLED);
+
+    // Draw main rectangle
+    cv::rectangle(rgbMatrix, main_rectangle.topLeft, main_rectangle.bottomRight, main_rectangle.color, main_rectangle.thickness);
 
 
     // Display the RGB matrix with the rectangles and circles in a window
