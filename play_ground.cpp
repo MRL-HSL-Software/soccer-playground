@@ -48,7 +48,7 @@ void PlayGround::drawMiddleCircle() {
     cv::circle(
         image,
         middle_circle_coordinate,
-        MIDDLE_CIRCLE_RADIUS * BASE_INDEX,
+        (MIDDLE_CIRCLE_RADIUS * BASE_INDEX)/2,
         cv::Scalar(255, 255, 255),
         LINE_WIDTH);
 }
