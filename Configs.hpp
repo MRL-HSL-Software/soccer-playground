@@ -19,7 +19,7 @@
      * @author Parsa Karbasi (ijackgonjishke@gmail.com)
      * @author Alireza Mortezaei (alirezamortezaei50@gmail.com)
      * @author Ramtin Kosari (ramtinkosari@gmail.com)
-     * @brief MRL HSL Soccer Filed Preview with OpenCV
+     * @brief MRL HSL Soccer Filed Preview Configurations
      * @version 1.0
      * @date 2023-12-21
      */
@@ -49,6 +49,4 @@
     # ifndef OPENCV_IMGPROC_HPP
         # include <opencv4/opencv2/imgproc.hpp>
     # endif // OPENCV_IMGPROC_HPP
-    //-- Include Necessary Libraries
-    # include <iostream>
 # endif // MRL_SOCCER_PLAYGROUND_CONFIGS
