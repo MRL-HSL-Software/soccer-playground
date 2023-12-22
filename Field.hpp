@@ -52,6 +52,14 @@
              */
             void initRectangles();
             /**
+             * @brief Initialize Playground Circles
+             */
+            void initCircles();
+            /**
+             * @brief Initialize Playground Lines
+             */
+            void initLines();
+            /**
              * @brief Method to Draw Playground (Alireza Mortezaei)
              */
             void drawPlayground();
