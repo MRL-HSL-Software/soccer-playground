@@ -26,6 +26,10 @@
     class SoccerPlayground {
         private:
             /**
+             * @brief Playground Initialization Status
+             */
+            bool isInitialized = false;
+            /**
              * @brief Playground Image
              */
             cv::Mat preview;
@@ -43,6 +47,10 @@
              * @return cv::Mat
              */
             cv::Mat getPlayground();
+            /**
+             * @brief Initialize Playground Rectangles
+             */
+            void initRectangles();
             /**
              * @brief Method to Draw Playground (Alireza Mortezaei)
              */

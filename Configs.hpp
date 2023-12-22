@@ -54,20 +54,20 @@
     # endif // _X11_XLIB_H_
     //-- Include Necessary Libraries
     # include <vector>
-    //-- Color of Playground Lines (Erfan Zarabadi)
-    # define LINE_COLOR cv::Scalar(200, 200, 200)
-    //-- Color of Playground Background (Erfan Zarabadi)
-    # define BACKGROUND_COLOR cv::Scalar(12, 22, 0)
-    //-- Color of Playground Team Goal Area (Erfan Zarabadi)
-    # define TEAM_GOAL_AREA_COLOR cv::Scalar(255, 255, 0)
     //-- Color of Playground Opponent Goal Area (Erfan Zarabadi)
     # define OPPONENT_GOAL_AREA_COLOR cv::Scalar(0, 255, 255)
+    //-- Color of Playground Team Goal Area (Erfan Zarabadi)
+    # define TEAM_GOAL_AREA_COLOR cv::Scalar(255, 255, 0)
+    //-- Color of Playground Background (Erfan Zarabadi)
+    # define BACKGROUND_COLOR cv::Scalar(12, 22, 0)
+    //-- Color of Playground Lines (Erfan Zarabadi)
+    # define LINE_COLOR cv::Scalar(200, 200, 200)
+    //-- Window Name
+    # define WINDOW_NAME "Soccer Playground"
     //-- Playground Line Thickness
-    # define LINE_THICKNESS 1
+    # define LINE_THICKNESS 2
     //-- Playground Line Type
     # define LINE_TYPE cv::LINE_AA
     //-- Playground Line Shift
     # define LINE_SHIFT 0
-    //-- Window Name
-    # define WINDOW_NAME "Soccer Playground"
 # endif // MRL_SOCCER_PLAYGROUND_CONFIGS

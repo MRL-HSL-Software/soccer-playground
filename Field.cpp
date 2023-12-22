@@ -4,9 +4,10 @@
      * @brief Initialize Soccer Playground Object
      */
     SoccerPlayground::SoccerPlayground() {
+        rectangles.resize(0);
         preview = cv::Mat(
-            (FIELD_WIDTH + BORDER_STRIP_WIDTH) * SCALE,
-            (FIELD_LENGTH + BORDER_STRIP_WIDTH) * SCALE,
+            (FIELD_WIDTH + BORDER_STRIP_WIDTH * 2) * SCALE,
+            (FIELD_LENGTH + BORDER_STRIP_WIDTH * 2) * SCALE,
             CV_8UC3,
             BACKGROUND_COLOR
         );
@@ -29,10 +30,40 @@
         return preview;
     }
     /**
-     * @brief Method to Draw Playground
+     * @brief Initialize Playground Rectangles
+     */
+    void SoccerPlayground::initRectangles() {
+        //-- Main Rectangle
+        rectangles.push_back({
+            cv::Point(
+                BORDER_STRIP_WIDTH * SCALE,
+                BORDER_STRIP_WIDTH * SCALE
+            ),
+            cv::Point(
+                (BORDER_STRIP_WIDTH + FIELD_LENGTH) * SCALE,
+                (BORDER_STRIP_WIDTH + FIELD_WIDTH) * SCALE
+            )
+        });
+        isInitialized = true;
+    }
+    /**
+     * @brief Method to Draw Playground (Alireza Mortezaei)
      */
     void SoccerPlayground::drawPlayground() {
-
+        if (isInitialized == false) {
+            initRectangles();
+        }
+        for (int i = 0; i < rectangles.size(); i++) {
+            cv::rectangle(
+                preview,
+                rectangles[i].topLeft,
+                rectangles[i].downRight,
+                LINE_COLOR,
+                LINE_THICKNESS,
+                LINE_TYPE,
+                LINE_SHIFT
+            );
+        }
     }
 # endif // MRL_SOCCER_PLAYGROUND
 
