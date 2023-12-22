@@ -15,6 +15,10 @@
          */
         # define MRL_SOCCER_PLAYGROUND
     # endif // MRL_SOCCER_PLAYGROUND
+    struct SoccerRectangle {
+        cv::Point topLeft;
+        cv::Point downRight;
+    };
     /**
      * @brief MRL HSL Soccer Playground Class
      * @details This class is used to create a soccer playground with OpenCV
@@ -25,6 +29,10 @@
              * @brief Playground Image
              */
             cv::Mat preview;
+            /**
+             * @brief Playground Rectangles
+             */
+            std::vector<SoccerRectangle> rectangles;
         public:
             /**
              * @brief Initialize Soccer Playground Object
@@ -32,7 +40,12 @@
             SoccerPlayground();
             /**
              * @brief Method to Get Playground Image
+             * @return cv::Mat
              */
             cv::Mat getPlayground();
+            /**
+             * @brief Method to Draw Playground (Alireza Mortezaei)
+             */
+            void drawPlayground();
     };
 # endif // MRL_SOCCER_PLAYGROUND_CONFIGS

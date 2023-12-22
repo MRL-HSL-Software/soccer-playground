@@ -39,8 +39,7 @@
     # define PENALTY_AREA_LENGTH 2.0        //-- Penalty Area Length in Meters
     # define PENALTY_MARK_DISTANCE 1.5      //-- Penalty Mark Distance in Meters
     # define CENTER_CIRCLE_DIAMETER 1.5     //-- Center Circle Diameter in Meters
-    //-- Define Playground View Scale (Mobina Abforoosh)
-    # define SCALE 70
+    # define SCALE 170                      //-- Define Playground View Scale
     //-- Include OpenCV HighGUI
     # ifndef OPENCV_HIGHGUI_HPP
         # include <opencv4/opencv2/highgui.hpp>
@@ -49,4 +48,26 @@
     # ifndef OPENCV_IMGPROC_HPP
         # include <opencv4/opencv2/imgproc.hpp>
     # endif // OPENCV_IMGPROC_HPP
+    //-- Include X11 Library
+    # ifndef _X11_XLIB_H_
+        # include <X11/Xlib.h>
+    # endif // _X11_XLIB_H_
+    //-- Include Necessary Libraries
+    # include <vector>
+    //-- Color of Playground Lines (Erfan Zarabadi)
+    # define LINE_COLOR cv::Scalar(200, 200, 200)
+    //-- Color of Playground Background (Erfan Zarabadi)
+    # define BACKGROUND_COLOR cv::Scalar(12, 22, 0)
+    //-- Color of Playground Team Goal Area (Erfan Zarabadi)
+    # define TEAM_GOAL_AREA_COLOR cv::Scalar(255, 255, 0)
+    //-- Color of Playground Opponent Goal Area (Erfan Zarabadi)
+    # define OPPONENT_GOAL_AREA_COLOR cv::Scalar(0, 255, 255)
+    //-- Playground Line Thickness
+    # define LINE_THICKNESS 1
+    //-- Playground Line Type
+    # define LINE_TYPE cv::LINE_AA
+    //-- Playground Line Shift
+    # define LINE_SHIFT 0
+    //-- Window Name
+    # define WINDOW_NAME "Soccer Playground"
 # endif // MRL_SOCCER_PLAYGROUND_CONFIGS
