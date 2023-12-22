@@ -1,67 +1,54 @@
-# ifndef __MRL__
+//-- Include MRL HSL Projects
+# ifndef MRL_HSL
+    # define MRL_HSL 1
     # pragma message \
-        "This Project Must be Included in MRL Projects Only. Use MRL CMake Files"
+        "This Project Must be Included in MRL Projects. You are Using It as Standalone Project"
+    # pragma message \
+        "Compiling without MRL Support."
 # else
-    # define __PROJECT_VERSION__ "1.0"
-# endif // __MRL_HSL
-
-# ifndef __MRL_SOCCER_PLAYGROUND_CONFIGS__
+    # pragma message \
+        "MRL Sub Project Configured and Initialized Successfully, Compiling with MRL Support"
+# endif // MRL_HSL
+//-- MRL HSL Soccer Playground Configs
+# ifndef MRL_SOCCER_PLAYGROUND_CONFIGS
     /**
      * @file Configs.hpp
      * @author Mobina Abforoosh (mobinaabf@gmail.com)
-     * @author Ramtin Kosari (ramtinkosari@gmail.com)
+     * @author Amir Yusefian (amiryn996@gmail.com)
+     * @author Erfan Zarabadi (mohammadspace39@gmail.com)
      * @author Parsa Karbasi (ijackgonjishke@gmail.com)
      * @author Alireza Mortezaei (alirezamortezaei50@gmail.com)
-     * @author Amir Yusefian
-     * @author Erfan Zarabadi
+     * @author Ramtin Kosari (ramtinkosari@gmail.com)
      * @brief MRL HSL Soccer Filed Preview with OpenCV
-     * @version 1.0.0
+     * @version 1.0
      * @date 2023-12-21
      */
-    # define __MRL_SOCCER_PLAYGROUND_CONFIGS__
-    //-- Define Playground Dimensions
-# endif // __MRL_SOCCER_PLAYGROUND_CONFIGS__
-
-
-// // am code
-
-// #define BASE_INDEX 80.0
-// #define LINE_WIDTH 1.0
-// #define MAIN_RECT_WIDTH 9.0
-// #define MAIN_RECT_HEIGHT 6.0
-// #define MAIN_RECT_MARGIN 1.0
-// #define MIDDLE_CIRCLE_RADIUS 1.5
-// #define LARG_GOAL_RECT_HEIGHT 5.0
-// #define LARG_GOAL_RECT_WIDTH 2.0
-// #define SMALL_GOAL_RECT_HEIGHT 3.0
-// #define SMALL_GOAL_RECT_WIDTH 1.0
-// #define GOAL_HEIGHT 2.6
-// #define GOAL_WIDTH 0.6
-// #define PENALTY_MARK_DISTANCE 1.5
-// #define PENALTY_MARK_SIZE 0.05
-
-
-
-// // mobina
-
-// #define FIELD_LENGTH 9.0
-// #define FIELD_WIDTH 6.0
-// #define GOAL_DEPTH 0.6
-// #define GOAL_WIDTH 2.6
-// #define GOAL_HEIGHT 1.2
-// #define GOAL_AREA_LENGTH 1.0
-// #define GOAL_AREA_WIDTH 3.0
-// #define PENALTY_MARK_DISTANCE 1.5
-// #define CENTER_CIRCLE_DIAMETER 1.5
-// #define BORDER_STRIP_WIDTH 1.0
-// #define PENALTY_AREA_LENGTH 2.0
-// #define PENALTY_AREA_WIDTH 5.0
-
-// #define SCALE 70
-
-// #define WIDTH 
-// #define LENGTH 
-
-// #define JTOA 
-// #define ETOJ 
-// #define CTOE 
+    # define MRL_SOCCER_PLAYGROUND_CONFIGS
+    //-- Define Project Version
+    # define PROJECT_VERSION "1.0"
+    //-- Define Playground Dimensions (Mobina Abforoosh)
+    # define GOAL_DEPTH 0.6                 //-- Goal Depth in Meters
+    # define GOAL_WIDTH 2.6                 //-- Goal Width in Meters
+    # define GOAL_HEIGHT 1.2                //-- Goal Height in Meters (Not Used)
+    # define FIELD_WIDTH 6.0                //-- Field Width in Meters
+    # define FIELD_LENGTH 9.0               //-- Field Length in Meters
+    # define GOAL_AREA_WIDTH 3.0            //-- Goal Area Width in Meters
+    # define GOAL_AREA_LENGTH 1.0           //-- Goal Area Length in Meters
+    # define BORDER_STRIP_WIDTH 1.0         //-- Border Strip Width in Meters
+    # define PENALTY_AREA_WIDTH 5.0         //-- Penalty Area Width in Meters
+    # define PENALTY_AREA_LENGTH 2.0        //-- Penalty Area Length in Meters
+    # define PENALTY_MARK_DISTANCE 1.5      //-- Penalty Mark Distance in Meters
+    # define CENTER_CIRCLE_DIAMETER 1.5     //-- Center Circle Diameter in Meters
+    //-- Define Playground View Scale (Mobina Abforoosh)
+    # define SCALE 70
+    //-- Include OpenCV HighGUI
+    # ifndef OPENCV_HIGHGUI_HPP
+        # include <opencv4/opencv2/highgui.hpp>
+    # endif // OPENCV_HIGHGUI_HPP
+    //-- Include OpenCV Image Processing
+    # ifndef OPENCV_IMGPROC_HPP
+        # include <opencv4/opencv2/imgproc.hpp>
+    # endif // OPENCV_IMGPROC_HPP
+    //-- Include Necessary Libraries
+    # include <iostream>
+# endif // MRL_SOCCER_PLAYGROUND_CONFIGS
