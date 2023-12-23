@@ -3,9 +3,12 @@
 Base of other experimental and tools tasks
 
 #### Table of Contents
-- [Introduction](#introduction)
-- [Dependencies](#dependencies)
-- [Build and Run](#build-and-run)
+- [Soccer Playground](#soccer-playground)
+      - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Dependencies](#dependencies)
+  - [Build and Run](#build-and-run)
+  - [Contributors](#contributors)
 
 ## Introduction
 This Soccer Playground is a graphically designed environment created using OpenCV in C++ specifically tailored for kid-sized robots participating in RoboCup competitions. RoboCup is an international initiative aiming to advance the field of robotics and artificial intelligence through soccer-playing robots.
@@ -40,14 +43,14 @@ Thanks to these new members of MRL HSL Software Team :
 - [Alireza Mortezaei](https://github.com/AMCoder-80) - Functional Scalable Drawing
 - [Ramtin Kosari](https://github.com/RamtinKosari) - Merge All Works Above
 
-<td>
-    <tr>
-        <img src="https://github.com/MobinaAbf.png" alt="https://github.com/MobinaAbf" width="14.28%"/>
-        <img src="https://github.com/AmirUsefian.png" alt="https://github.com/AmirUsefian" width="14.28%"/>
-        <img src="https://github.com/ErfanDE10.png" alt="https://github.com/ErfanDE10" width="14.28%"/>
-        <img src="https://github.com/ChefParsa.png" alt="https://github.com/ChefParsa" width="14.28%"/>
-        <img src="https://github.com/RamtinKosari.png" alt="https://github.com/RamtinKosari" width="14.28%"/>
-        <img src="https://github.com/AMCoder-80.png" alt="https://github.com/AMCoder-80" width="14.28%"/>
-    </tr>
-</td>
+<table>
+  <tr>
+    <td><img src="https://github.com/MobinaAbf.png" alt="Mobina Abforoosh" width="14.28%"/></td>
+    <td><img src="https://github.com/AmirUsefian.png" alt="Amir Yusefian" width="14.28%"/></td>
+    <td><img src="https://github.com/ErfanDE10.png" alt="Erfan Zarabadi" width="14.28%"/></td>
+    <td><img src="https://github.com/ChefParsa.png" alt="Parsa Karbasi" width="14.28%"/></td>
+    <td><img src="https://github.com/RamtinKosari.png" alt="Ramtin Kosari" width="14.28%"/></td>
+    <td><img src="https://github.com/AMCoder-80.png" alt="Alireza Mortezaei" width="14.28%"/></td>
+  </tr>
+</table>
 
