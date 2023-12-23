@@ -3,8 +3,6 @@
 Base of other experimental and tools tasks
 
 #### Table of Contents
-- [Soccer Playground](#soccer-playground)
-      - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Dependencies](#dependencies)
   - [Build and Run](#build-and-run)
