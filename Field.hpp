@@ -25,7 +25,7 @@
         NOT_NECCESSARY
     };
     /**
-     * @brief Rectangle Structure
+     * @brief Rectangle Structure (Parsa Karbasi and Amir Yusefian)
      */
     struct SoccerRectangle {
         cv::Point topLeft;
