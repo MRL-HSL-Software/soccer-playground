@@ -15,10 +15,42 @@
          */
         # define MRL_SOCCER_PLAYGROUND
     # endif // MRL_SOCCER_PLAYGROUND
+    /**
+     * @brief Playground ID Enumeration
+     */
+    enum PlaygroundID {
+        OPPONENT_GOAL_AREA,
+        BACKGROUND_CIRCLE,
+        TEAM_GOAL_AREA,
+        NOT_NECCESSARY
+    };
+    /**
+     * @brief Rectangle Structure
+     */
     struct SoccerRectangle {
         cv::Point topLeft;
         cv::Point downRight;
+        int name_id;
     };
+    /**
+     * @brief Circle Structure
+     */
+    struct SoccerCircle {
+        cv::Point center;
+        int radius;
+        int name_id;
+    };
+    /**
+     * @brief Line Structure
+     */
+    struct SoccerLine {
+        cv::Point start;
+        cv::Point end;
+        int name_id;
+    };
+
+
+
     /**
      * @brief MRL HSL Soccer Playground Class
      * @details This class is used to create a soccer playground with OpenCV
@@ -28,7 +60,7 @@
             /**
              * @brief Playground Initialization Status
              */
-            bool isInitialized = false;
+            bool isInitialized;
             /**
              * @brief Playground Image
              */
@@ -37,6 +69,14 @@
              * @brief Playground Rectangles
              */
             std::vector<SoccerRectangle> rectangles;
+            /**
+             * @brief Playground Circles
+             */
+            std::vector<SoccerCircle> circles;
+            /**
+             * @brief Playground Lines
+             */
+            std::vector<SoccerLine> lines;
         public:
             /**
              * @brief Initialize Soccer Playground Object

@@ -70,4 +70,6 @@
     # define LINE_TYPE cv::LINE_AA
     //-- Playground Line Shift
     # define LINE_SHIFT 0
+    //-- Playground Circle Radius
+    # define CIRCLE_RADIUS 4
 # endif // MRL_SOCCER_PLAYGROUND_CONFIGS
