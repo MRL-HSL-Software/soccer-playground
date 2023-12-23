@@ -244,26 +244,6 @@
                 LINE_TYPE,
                 LINE_SHIFT
             );
-            cv::imshow(WINDOW_NAME, preview);
-            cv::waitKey(0);
         }
     }
 # endif // MRL_SOCCER_PLAYGROUND
-
-
-
-
-
-// struct MainRectangle {
-//         cv::Point topLeft;
-//         cv::Point bottomRight;
-//         cv::Scalar color;
-//         int thickness;
-
-//         // Constructor to initialize the members
-//         MainRectangle() : 
-//             topLeft(borderStripWidth * contractPixel, borderStripWidth * contractPixel),
-//             bottomRight((borderStripWidth + feildLength) * contractPixel, (borderStripWidth + feildWidth) * contractPixel),
-//             color(255, 255, 255),  // White color
-//             thickness(1) {}
-//     };

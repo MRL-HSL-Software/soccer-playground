@@ -59,7 +59,7 @@
     //-- Color of Playground Team Goal Area (Erfan Zarabadi)
     # define TEAM_GOAL_AREA_COLOR cv::Scalar(255, 255, 0)
     //-- Color of Playground Background (Erfan Zarabadi)
-    # define BACKGROUND_COLOR cv::Scalar(12, 22, 0)
+    # define BACKGROUND_COLOR cv::Scalar(7, 17, 0)
     //-- Color of Playground Lines (Erfan Zarabadi)
     # define LINE_COLOR cv::Scalar(200, 200, 200)
     //-- Window Name
