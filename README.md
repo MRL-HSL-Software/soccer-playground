@@ -23,11 +23,14 @@ This project can be compiled as standalone project but if you want to compile it
 # - Clone the Repository
 git clone https://github.com/MRL-HSL-Software/soccer-playground.git
 cd soccer-playground/
+
 # - Also Clone MRL HSL CMake Project
 git clone https://github.com/MRL-sHSL-Software/MRL-HSL-CMake.git
 cd MRL-HSL-CMake/
+
 # - Build Project Project Using This Command :
 ./setup.sh
+
 # - To Run Output Go to build Directory and Then Enter This Command :
 ./SoccerField
 ```
@@ -41,7 +44,7 @@ Thanks to these new members of MRL HSL Software Team :
 - [Alireza Mortezaei](https://github.com/AMCoder-80) - Functional Scalable Drawing
 - [Ramtin Kosari](https://github.com/RamtinKosari) - Merge All Works Above
 
-
+<!--
 <td>
     <tr>
         <img src="https://github.com/MobinaAbf.png" alt="https://github.com/MobinaAbf" width="64"/>
@@ -52,3 +55,4 @@ Thanks to these new members of MRL HSL Software Team :
         <img src="https://github.com/AMCoder-80.png" alt="https://github.com/AMCoder-80" width="50;"/>
     </tr>
 </td>
+-->
