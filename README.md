@@ -43,14 +43,11 @@ Thanks to these new members of MRL HSL Software Team :
 - [Alireza Mortezaei](https://github.com/AMCoder-80) - Functional Scalable Drawing
 - [Ramtin Kosari](https://github.com/RamtinKosari) - Merge All Works Above
 
-<table>
-  <tr>
-    <td><img src="https://github.com/MobinaAbf.png" alt="Mobina Abforoosh" width="14.28%"/></td>
-    <td><img src="https://github.com/AmirUsefian.png" alt="Amir Yusefian" width="14.28%"/></td>
-    <td><img src="https://github.com/ErfanDE10.png" alt="Erfan Zarabadi" width="14.28%"/></td>
-    <td><img src="https://github.com/ChefParsa.png" alt="Parsa Karbasi" width="14.28%"/></td>
-    <td><img src="https://github.com/RamtinKosari.png" alt="Ramtin Kosari" width="14.28%"/></td>
-    <td><img src="https://github.com/AMCoder-80.png" alt="Alireza Mortezaei" width="14.28%"/></td>
-  </tr>
-</table>
-
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <img src="https://github.com/MobinaAbf.png" alt="Mobina Abforoosh" style="width: 14.28%;"/>
+    <img src="https://github.com/AmirUsefian.png" alt="Amir Yusefian" style="width: 14.28%;"/>
+    <img src="https://github.com/ErfanDE10.png" alt="Erfan Zarabadi" style="width: 14.28%;"/>
+    <img src="https://github.com/ChefParsa.png" alt="Parsa Karbasi" style="width: 14.28%;"/>
+    <img src="https://github.com/RamtinKosari.png" alt="Ramtin Kosari" style="width: 14.28%;"/>
+    <img src="https://github.com/AMCoder-80.png" alt="Alireza Mortezaei" style="width: 14.28%;"/>
+</div>
