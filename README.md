@@ -25,7 +25,7 @@ git clone https://github.com/MRL-HSL-Software/soccer-playground.git
 cd soccer-playground/
 
 # - Also Clone MRL HSL CMake Project
-git clone https://github.com/MRL-sHSL-Software/MRL-HSL-CMake.git
+git clone https://github.com/MRL-HSL-Software/MRL-HSL-CMake.git
 cd MRL-HSL-CMake/
 
 # - Build Project Project Using This Command :
