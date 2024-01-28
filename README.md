@@ -32,7 +32,7 @@ cd MRL-HSL-CMake/
 ./setup.sh
 
 # - To Run Output Go to build Directory and Then Enter This Command :
-./SoccerField
+./run
 ```
 
 ## Contributors
