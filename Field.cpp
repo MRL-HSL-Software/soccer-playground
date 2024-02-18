@@ -16,7 +16,6 @@
         //-- Find Center Pixel of Screen
         Display* disp = XOpenDisplay(NULL);
         Screen* scrn = DefaultScreenOfDisplay(disp);
-        cv::imshow(WINDOW_NAME, preview);
         cv::moveWindow(
             WINDOW_NAME,
             scrn->width / 2 - preview.cols / 2,
